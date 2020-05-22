@@ -101,10 +101,10 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
         content.setBackground(Color.WHITE);
         content.setLayout(new FlowLayout());
 
-//        // Now draw the BarnDoor on the content pane.
-//        // Use exact same rectangle used for the JLabel.
-//        GeometryModel model = new GeometryModel();
-//        Dimension dim = new Dimension(rectL.width, rectL.height);
+        // Now draw the BarnDoor on the content pane.
+        // Use exact same rectangle used for the JLabel.
+        GeometryModel model = new GeometryModel();
+        Dimension dim = new Dimension(rectL.width, rectL.height);
 //        BarnDoor door = new BarnDoor(model, dim);
 //        door.addShapes();
 //        //content.add(door);
