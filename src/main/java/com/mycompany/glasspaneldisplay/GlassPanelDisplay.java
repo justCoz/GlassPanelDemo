@@ -53,6 +53,8 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
 
     public void setUpPanes() {
         GlassPanelDisplay mf = this;
+        String version = new String("1.0.0");
+        setTitle("Glass Panel Display Demo version "+version);
         mf.setSize(400, 400);
         mf.setLocationRelativeTo(null);
         mf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -93,9 +95,6 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
         glassPane.add(label);
         //MUST HAVE THE FOLLOWING LINE FOR GLASS PANE TO BE TRANSPARENT!
         glassPane.setOpaque(false);
-
-        
-        
         
         Container content = mf.getContentPane();
         content.setBackground(Color.WHITE);
@@ -107,14 +106,10 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
         Dimension dim = new Dimension(rectL.width, rectL.height);
         BarnDoor door = new BarnDoor(model, dim);
         door.addShapes();
-//        //content.add(door);
-//        add(door);
-
-
+        content.add(door);
         content.setVisible(true);
         
         mf.getGlassPane().setVisible(true);
-
 
     }
 
