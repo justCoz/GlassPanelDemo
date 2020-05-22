@@ -5,6 +5,9 @@
  */
 package com.mycompany.glasspaneldisplay;
 
+import java.awt.Font;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Coz
@@ -18,6 +21,30 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
         initComponents();
     }
 
+        public static int computeMaxFontSize(JLabel label) {
+        // Given the label dimensions, the text, and the font, 
+        // what is the font size that will fit?
+        
+        // Compute the font size to fit into the label size.
+        Font labelFont = label.getFont();
+        String labelText = label.getText();
+
+        int stringWidth = label.getFontMetrics(labelFont).stringWidth(labelText);
+        int componentWidth = label.getWidth();
+
+        // Find out how much the font can grow in width.
+        double widthRatio = (double)componentWidth / (double)stringWidth;
+        System.out.println("widthRatio of "+labelFont.getName()+" is " + String.valueOf(widthRatio) );
+        int newFontSize = (int)(labelFont.getSize() * widthRatio);
+        int componentHeight = label.getHeight();
+
+        // Pick a new font size so it will not be larger than the height of label.
+        int fontSizeToUse = Math.min(newFontSize, componentHeight);
+        System.out.println("Font size to use is "+ String.valueOf(fontSizeToUse));
+        return fontSizeToUse;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
