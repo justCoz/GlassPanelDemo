@@ -5,8 +5,14 @@
  */
 package com.mycompany.glasspaneldisplay;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Rectangle;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -44,7 +50,72 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
         return fontSizeToUse;
     }
 
-    
+    public void setUpPanes() {
+        GlassPanelDisplay mf = this;
+        mf.setSize(400, 400);
+        mf.setLocationRelativeTo(null);
+        mf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        mf.setGlassPane(new JPanel());
+        
+        // We are drawing the digit on the glass pane.
+        // We are drawing the barnDoor on the content pane.
+        int boundsX = 10;
+        int boundsY = 10;
+        int boundsWidth = 80;
+        int boundsHeight = 120;
+        Rectangle labelRect = new Rectangle(boundsX,boundsY,boundsWidth,boundsHeight);
+        
+        JLabel label = new JLabel();
+        label.setBounds(labelRect);
+        Font font = new Font("Lucida Grande", Font.PLAIN, 12);
+        label.setFont(font);
+        label.setText("8");
+       int fontSizeToUse = computeMaxFontSize(label); 
+        
+        // Set the label's font size to the newly determined size.
+        label.setFont(new Font(font.getName(), Font.PLAIN, fontSizeToUse));
+        
+        label.setForeground(Color.GREEN);
+        label.setBorder(new LineBorder(Color.BLACK, 1));
+        Rectangle bounds = label.getBounds();
+        boundsX = bounds.x;
+        boundsY = bounds.y;
+        boundsWidth = bounds.width;
+        boundsHeight = bounds.height;
+        label.setPreferredSize(label.getSize());
+        float xL = label.getAlignmentX();
+        float yL = label.getAlignmentY();
+        Rectangle rectL = label.getBounds();
+        Dimension dimPrefSizeL = label.getPreferredSize();
+        JPanel glassPane = (JPanel) mf.getGlassPane();
+        glassPane.setLayout(new FlowLayout());
+        glassPane.add(label);
+        //MUST HAVE THE FOLLOWING LINE FOR GLASS PANE TO BE TRANSPARENT!
+        glassPane.setOpaque(false);
+
+        
+        
+        
+//        Container content = mf.getContentPane();
+//        content.setBackground(Color.WHITE);
+//        content.setLayout(new FlowLayout());
+//
+//        // Now draw the BarnDoor on the content pane.
+//        // Use exact same rectangle used for the JLabel.
+//        GeometryModel model = new GeometryModel();
+//        Dimension dim = new Dimension(rectL.width, rectL.height);
+//        BarnDoor door = new BarnDoor(model, dim);
+//        door.addShapes();
+//        //content.add(door);
+//        add(door);       
+//        content.setVisible(true);
+        
+        mf.getGlassPane().setVisible(true);
+
+
+    }
+
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -101,9 +172,9 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 GlassPanelDisplay frame = new GlassPanelDisplay();
-                //frame.setUpPanes();
+                frame.setUpPanes();
                 
-                //frame.pack();
+
                 frame.setVisible(true);
             }
         });
