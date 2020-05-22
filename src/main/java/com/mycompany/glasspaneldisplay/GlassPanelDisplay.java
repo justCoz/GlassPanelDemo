@@ -6,6 +6,7 @@
 package com.mycompany.glasspaneldisplay;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -96,10 +97,10 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
         
         
         
-//        Container content = mf.getContentPane();
-//        content.setBackground(Color.WHITE);
-//        content.setLayout(new FlowLayout());
-//
+        Container content = mf.getContentPane();
+        content.setBackground(Color.WHITE);
+        content.setLayout(new FlowLayout());
+
 //        // Now draw the BarnDoor on the content pane.
 //        // Use exact same rectangle used for the JLabel.
 //        GeometryModel model = new GeometryModel();
@@ -107,8 +108,10 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
 //        BarnDoor door = new BarnDoor(model, dim);
 //        door.addShapes();
 //        //content.add(door);
-//        add(door);       
-//        content.setVisible(true);
+//        add(door);
+
+
+        content.setVisible(true);
         
         mf.getGlassPane().setVisible(true);
 
