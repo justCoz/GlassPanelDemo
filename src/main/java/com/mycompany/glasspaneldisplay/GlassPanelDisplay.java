@@ -16,7 +16,14 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 /**
- *
+ * This is a prototype demo of a static background drawn on a JFrame content pane
+ * and a dynamic foreground drawn on a JFrame glass pane.
+ * 
+ * In application, the foreground is a DecadeDigit that listens for mouse clicks
+ * in the top half of textField to increment digit and the bottom half to
+ * decrement digit.  This gives the appearance of a custom JSpinner without using
+ * display space for the spinner buttons.
+ * 
  * @author Coz
  */
 public class GlassPanelDisplay extends javax.swing.JFrame {
@@ -27,8 +34,15 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
     public GlassPanelDisplay() {
         initComponents();
     }
-
-        public static int computeMaxFontSize(JLabel label) {
+    /**
+     * For the given JLabel, use the label dimensions and font metrics to 
+     * determine the maximum font size that will fit.
+     * 
+     * @param label the JLabel text field 
+     * 
+     * @return The maximum font size in font points
+     */
+    public static int computeMaxFontSize(JLabel label) {
         // Given the label dimensions, the text, and the font, 
         // what is the font size that will fit?
         
