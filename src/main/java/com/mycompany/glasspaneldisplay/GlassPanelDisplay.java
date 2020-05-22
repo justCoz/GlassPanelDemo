@@ -106,7 +106,7 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
         GeometryModel model = new GeometryModel();
         Dimension dim = new Dimension(rectL.width, rectL.height);
         BarnDoor door = new BarnDoor(model, dim);
-//        door.addShapes();
+        door.addShapes();
 //        //content.add(door);
 //        add(door);
 
