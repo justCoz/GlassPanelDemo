@@ -72,18 +72,18 @@ public class BarnDoor extends JPanel {
         // Draw the lower outline rectangle.        
         Rectangle lowerBoxRect = new Rectangle(inset, inset+rectHeight/2, 
                 boxWidth, boxHeight);
-        OutlineRectangle lowerBox = new OutlineRectangle(upperBoxRect, outlineColor);
+        OutlineRectangle lowerBox = new OutlineRectangle(lowerBoxRect, outlineColor);
         model.addGeometry((Geometry)lowerBox);
                
         // Draw the upper arrow triangle outline at 5 percent inset.
-        inset = inset + inset;
-        boxWidth = boxWidth - (2*inset);
-        boxHeight = boxHeight - (2*inset);
-        Rectangle upArrowRect = new Rectangle( inset, inset, boxWidth, boxHeight);
+        int Tinset = 2*inset;
+        boxWidth = rectWidth - (4*inset);
+        boxHeight = rectHeight/2 - (4*inset);
+        Rectangle upArrowRect = new Rectangle( Tinset, Tinset, boxWidth, boxHeight);
         UpwardOutlineTriangle upTriangle = new UpwardOutlineTriangle(upArrowRect, outlineColor);
         model.addGeometry(upTriangle);
         // Draw the lower arrow triangle outline.
-        Rectangle downArrowRect = new Rectangle( inset, inset+rectHeight/2,
+        Rectangle downArrowRect = new Rectangle( Tinset, Tinset+rectHeight/2,
                     boxWidth, boxHeight);
         DownwardOutlineTriangle downTriangle = new DownwardOutlineTriangle(downArrowRect, outlineColor);
         model.addGeometry(downTriangle);
