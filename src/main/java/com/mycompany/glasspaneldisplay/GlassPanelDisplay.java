@@ -105,7 +105,7 @@ public class GlassPanelDisplay extends javax.swing.JFrame {
         // Use exact same rectangle used for the JLabel.
         GeometryModel model = new GeometryModel();
         Dimension dim = new Dimension(rectL.width, rectL.height);
-//        BarnDoor door = new BarnDoor(model, dim);
+        BarnDoor door = new BarnDoor(model, dim);
 //        door.addShapes();
 //        //content.add(door);
 //        add(door);
